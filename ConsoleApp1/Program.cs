@@ -246,6 +246,7 @@ namespace ConsoleApp1
                 Console.WriteLine(name);
                 var index = list.IndexOf(name);
             }
+        }
            
     }
 }
