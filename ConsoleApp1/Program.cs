@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace ConsoleApp1
 {
@@ -243,7 +244,8 @@ namespace ConsoleApp1
             foreach (string name in list)
             {
                 Console.WriteLine(name);
+                var index = list.IndexOf(name);
             }
-        }
+           
     }
 }
