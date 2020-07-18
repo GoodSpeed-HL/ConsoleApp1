@@ -13,7 +13,7 @@ namespace ConsoleApp1
             Balance = balance;
         }
 
-        public string getBalance()
+        public string GetBalance()
         {
             return String.Format("current balance is {0}", Balance);
         }

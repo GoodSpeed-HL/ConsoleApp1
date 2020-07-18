@@ -15,7 +15,23 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
-           
+            string connectionString = @"server=159.65.173.30;userid=ucareer;password=LSnWpGKencRi8Xj5Ar4=;database=computerFactory_master";
+            using var con = new MySqlConnection(connectionString);
+            con.Open();
+            Console.WriteLine($"MySQL version : {con.ServerVersion}");
+
+            Console.WriteLine($"MySQL select head tables");
+            string query = "select * from head";
+            using var cmd = new MySqlCommand(query, con);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            Console.WriteLine("id\t label");
+            while (dataReader.Read())
+            {
+                Console.WriteLine(String.Format("{0}\t {1}", dataReader["id"], dataReader["label"]));
+            }
+            dataReader.Close();
+
         }
 
         void Classtest()
@@ -26,28 +42,33 @@ namespace ConsoleApp1
             Account account = new Account(1000);
             Account account1 = new Account(1500);
             Account account2 = new Account(2000);
-            Console.WriteLine(account.getBalance());
+            Console.WriteLine(account.GetBalance());
 
             account.Withdraw(500);
-            Console.WriteLine(account.getBalance());
+            Console.WriteLine(account.GetBalance());
 
             account.Deposit(1000);
-            Console.WriteLine(account.getBalance());
+            Console.WriteLine(account.GetBalance());
 
-            List<Account> accounts = new List<Account>();
-            accounts.Add(account);
-            accounts.Add(account1);
-            accounts.Add(account2);
+            //List<MenuItem> menuItems = new ArrayList<menuItems>();
+            //IList
+            List<Account> accounts = new List<Account>
+            {
+                account,
+                account1,
+                account2
+            };
 
+     
 
             int total = 0;
             foreach (Account a in accounts)
             {
                 a.Withdraw(500);
-                Console.WriteLine(a.getBalance());
+                Console.WriteLine(a.GetBalance());
 
                 a.Deposit(1000);
-                Console.WriteLine(account.getBalance());
+                Console.WriteLine(account.GetBalance());
                 total += account.Balance;
             }
 
