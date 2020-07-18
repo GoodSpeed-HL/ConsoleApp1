@@ -12,7 +12,7 @@ namespace StudentAndGrade
 
         public void Show()
         {
-            Console.WriteLine(string.Format("{0}\t{1}", this.CoureseName, this.Score));
+            Console.WriteLine(string.Format("{0}    \t{1}", this.CoureseName, this.Score));
         }
     }
 }
